@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'EB Garamond', serif;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
   /* justify-content: center; */
   /* align-items: center; */
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: #F3F4F6;
   box-sizing: border-box;
 }
 
@@ -21,7 +22,7 @@ body {
 }
 
 .top-section img {
-  width: 32px;
+  width: 24px;
   height: auto;
   padding: .2rem;
   cursor: pointer;
@@ -29,19 +30,34 @@ body {
 
 .middle-section {
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
+}
+
+.slides {
+  margin: 2rem;
+}
+
+.slides a {
+  all: unset;
+  cursor: pointer;
 }
 
 .slide {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
-  width: 30rem;
-  height: 40rem;
-  background-color: grey;
+  width: 45rem;
+  height: 50rem;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  margin: 2rem;
+}
+
+#slide-1,
+#slide-2 {
+  /* visibility: hidden; */
+  display: none;
 }
 
 .slide-title {
@@ -50,25 +66,52 @@ body {
   height: 5rem;
   font-size: 3rem;
   padding: 1.5rem;
+  color: #212121;
 }
 
 .slide-img {
-  height: 25rem;
-  width: 25rem;
+  height: 35rem;
+  width: 35rem;
   border-radius: 12px;
+  display: none;
 }
 
 .bottom-section {
-  display: flex;
-  padding: 1rem;
-  margin-top: 2rem;
-  max-width: 70rem;
+  padding: calc(1.5rem + 24px) 1rem 1rem 1rem;
+  text-align: center;
+  max-width: 60rem;
   height: 10rem;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
+}
+
+.bottom-section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.bottom-section p {
+  padding: .2rem;
+  font-size: 1.4rem;
 }
 
 .footer {
   display: flex;
-  padding: 1rem;
-  background-color: black;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 1.2rem;
+  background-color: #212121;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.footer a {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.footer img {
+  height: 24px;
+  margin-left: .4rem;
 }
