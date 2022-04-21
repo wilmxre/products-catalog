@@ -14,6 +14,13 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP SECTION */
+
 .top-section {
   display: flex;
   font-size: 1.4rem;
@@ -28,8 +35,17 @@ body {
   cursor: pointer;
 }
 
+.top-section img:hover {
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, .1);
+  overflow: hidden;
+}
+
+/* MIDDLE SECTION */
+
 .middle-section {
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -42,13 +58,29 @@ body {
   cursor: pointer;
 }
 
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.pg {
+  width: 60px;
+  height: 15px;
+  background-color: #000000;
+  border-radius: 6px;
+  margin: 0 .4rem;
+  cursor: pointer;
+}
+
 .slide {
   display: flex;
   flex-direction: column;
   /* justify-content: space-evenly; */
   align-items: center;
-  width: 45rem;
-  height: 50rem;
+  /* width: 45rem;
+  height: 50rem; */
+  width: 40vw;
+  height: 85vh;
   background-color: #ffffff;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -76,12 +108,16 @@ body {
   display: none;
 }
 
+/* BOTTOM SECTION */
+
 .bottom-section {
-  padding: calc(1.5rem + 24px) 1rem 1rem 1rem;
+  padding: 1rem;
   text-align: center;
   max-width: 60rem;
   height: 10rem;
-  margin: 0 auto 2rem auto;
+  margin: calc(24px + .4rem) auto calc(24px + .4rem + 2rem) auto;
+  flex: 1;
+  /* push footer down */
 }
 
 .bottom-section h2 {
@@ -93,6 +129,8 @@ body {
   padding: .2rem;
   font-size: 1.4rem;
 }
+
+/* FOOTER */
 
 .footer {
   display: flex;

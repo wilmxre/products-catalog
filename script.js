@@ -1,4 +1,5 @@
 const slides = document.querySelector('.slides');
+const navigation = document.querySelector('.navigation');
 
 for (let i = 0; i < 3; i++) {
   const link = document.createElement('a');
@@ -23,6 +24,13 @@ for (let i = 0; i < 3; i++) {
   slide.appendChild(slideImage);
   link.appendChild(slide);
   slides.appendChild(link);
+
+  const pg = document.createElement('div');
+  pg.classList.add('pg');
+  pg.setAttribute('id', `pg-${i}`);
+  navigation.appendChild(pg);
 }
 
+navigation.addEventListener('click', (e) => {
 
+});
