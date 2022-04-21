@@ -7,7 +7,7 @@ for (let i = 0; i < 3; i++) {
 
   const slide = document.createElement('div');
   slide.classList.add('slide');
-  slide.setAttribute('id', `slide-${i}`);
+  slide.setAttribute('id', `slide-${i} pg-${i}`);
   link.appendChild(slide);
   slides.appendChild(link);
 
@@ -32,5 +32,24 @@ for (let i = 0; i < 3; i++) {
 }
 
 navigation.addEventListener('click', (e) => {
-
+  for (let i = 0; i < slides.childNodes.length; i++) {
+    if (navigation.childNodes[0].classList[0] === 'pg') {
+      slides.childNodes[i].childNodes[0].classList.add('display-none');
+    }
+    if (e.target.id === slides.childNodes[i].childNodes[0].id.split(' ')[1]) {
+      slides.childNodes[i].childNodes[0].classList.remove('display-none');
+    }
+  }
 });
+
+// remove slide from browser
+slides.childNodes[1].childNodes[0].classList.add('display-none');
+slides.childNodes[2].childNodes[0].classList.add('display-none');
+
+// change content of slide
+const changeContent = (elem, title) => {
+  elem.textContent = title;
+}
+
+changeContent(slides.childNodes[1].childNodes[0].childNodes[0], 'Baumit')
+changeContent(slides.childNodes[2].childNodes[0].childNodes[0], 'Remerse')
