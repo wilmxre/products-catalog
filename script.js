@@ -46,10 +46,45 @@ navigation.addEventListener('click', (e) => {
 slides.childNodes[1].childNodes[0].classList.add('display-none');
 slides.childNodes[2].childNodes[0].classList.add('display-none');
 
-// change content of slide
-const changeContent = (elem, title) => {
+// change text content of slide
+const setText = (elem, title) => {
   elem.textContent = title;
 }
 
-changeContent(slides.childNodes[1].childNodes[0].childNodes[0], 'Baumit')
-changeContent(slides.childNodes[2].childNodes[0].childNodes[0], 'Remerse')
+const setImg = (elem, src) => {
+  elem.src = src;
+}
+
+setText(slides.childNodes[1].childNodes[0].childNodes[0], 'Baumit')
+setText(slides.childNodes[2].childNodes[0].childNodes[0], 'Remerse')
+
+
+const cards = document.querySelector('.cards');
+
+for (let i = 0; i < 3; i++) {
+  const card = document.createElement('div');
+  card.classList.add(`card-${i}`);
+
+  const title = document.createElement('img');
+  title.classList.add(`card-${i}-title`);
+  card.appendChild(title);
+
+  const img = document.createElement('img');
+  img.classList.add(`card-${i}-img`);
+  card.appendChild(img);
+
+  cards.appendChild(card);
+}
+
+
+// setText(cards.childNodes[0].childNodes[0], 'Velux');
+// setText(cards.childNodes[1].childNodes[0], 'Baumit');
+// setText(cards.childNodes[2].childNodes[0], 'Remerse');
+
+cards.childNodes[0].childNodes[0].src = './velux.svg';
+cards.childNodes[1].childNodes[0].src = './baumit.png';
+cards.childNodes[2].childNodes[0].src = './remmers.svg';
+
+setImg(cards.childNodes[0].childNodes[1], './velux-card.jpeg');
+setImg(cards.childNodes[1].childNodes[1], 'https://i.picsum.photos/id/1003/1181/1772.jpg?hmac=oN9fHMXiqe9Zq2RM6XT-RVZkojgPnECWwyEF1RvvTZk');
+setImg(cards.childNodes[2].childNodes[1], 'https://i.picsum.photos/id/1003/1181/1772.jpg?hmac=oN9fHMXiqe9Zq2RM6XT-RVZkojgPnECWwyEF1RvvTZk');
