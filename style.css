@@ -17,6 +17,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 /* TOP SECTION */
@@ -46,7 +47,9 @@ body {
 .middle-section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
+  flex-grow: 2;
 }
 
 .slides {
@@ -77,10 +80,10 @@ body {
   flex-direction: column;
   /* justify-content: space-evenly; */
   align-items: center;
-  /* width: 45rem;
-  height: 50rem; */
-  width: 40vw;
-  height: 85vh;
+  width: 45rem;
+  height: 50rem;
+  /* width: 40vw;
+  height: 85vh; */
   background-color: #ffffff;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -110,12 +113,16 @@ body {
 /* BOTTOM SECTION */
 
 .bottom-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 1rem;
   text-align: center;
   max-width: 60rem;
   height: 10rem;
   margin: calc(24px + .4rem) auto calc(24px + .4rem + 2rem) auto;
   flex: 1;
+  flex-grow: 1;
   /* push footer down */
 }
 
@@ -151,4 +158,23 @@ body {
 .footer img {
   height: 24px;
   margin-left: .4rem;
+}
+
+@media only screen and (max-width: 960px) {
+  .slide {
+    width: 36rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slide {
+    width: 28rem;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  .slide {
+    width: 21.6rem;
+    height: 24rem;
+  }
 }
