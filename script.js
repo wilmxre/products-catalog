@@ -86,5 +86,5 @@ cards.childNodes[1].childNodes[0].src = './baumit.png';
 cards.childNodes[2].childNodes[0].src = './remmers.svg';
 
 setImg(cards.childNodes[0].childNodes[1], './velux-card.jpeg');
-setImg(cards.childNodes[1].childNodes[1], 'https://i.picsum.photos/id/1003/1181/1772.jpg?hmac=oN9fHMXiqe9Zq2RM6XT-RVZkojgPnECWwyEF1RvvTZk');
-setImg(cards.childNodes[2].childNodes[1], 'https://i.picsum.photos/id/1003/1181/1772.jpg?hmac=oN9fHMXiqe9Zq2RM6XT-RVZkojgPnECWwyEF1RvvTZk');
+setImg(cards.childNodes[1].childNodes[1], './baumit-card.jpg');
+setImg(cards.childNodes[2].childNodes[1], './remmers-card.jpg');

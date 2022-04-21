@@ -7,9 +7,6 @@
 body {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 100vh; */
   background-color: #F3F4F6;
   box-sizing: border-box;
 }
@@ -50,19 +47,20 @@ body {
 .cards {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-wrap: wrap;
+  margin: 2rem 0;
 }
 
 .card-0,
 .card-1,
 .card-2 {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   width: 28rem;
-  height: 80%;
   font-size: 2.4rem;
   padding: 1.5rem;
 }
@@ -87,9 +85,41 @@ img.card-2-title {
   height: auto;
   margin-top: 2rem;
   border-radius: 12px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-1-img {
+  height: 25rem;
+  width: auto;
 }
 
 /* CARDS */
+
+
+/* INFO */
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  max-width: 60rem;
+  height: 10rem;
+  margin: 0 auto;
+}
+
+.info h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.info p {
+  padding: .2rem;
+  font-size: 1.4rem;
+}
+
+/* INFO */
+/* --- CONTAINER MIDDLE --- */
 
 /* --- CONTAINER TOP --- */
 
@@ -98,7 +128,6 @@ img.card-2-title {
 .container-middle {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .mid-wrap {
@@ -114,7 +143,6 @@ img.card-2-title {
   display: flex;
   flex-direction: column;
   margin: 2rem;
-  /* width: 96rem; */
 }
 
 .slides a {
@@ -137,7 +165,7 @@ img.card-2-title {
 }
 
 .slide {
-  height: 50rem;
+  height: 75vh;
   width: 80vw;
   background-color: #ffffff;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -168,46 +196,15 @@ img.card-2-title {
 
 /* SLIDES */
 
-/* INFO */
-.info {
-  display: flex;
-  gap: 1rem;
-  flex-direction: row;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-  max-width: 60rem;
-  height: 10rem;
-  margin: 0 auto;
-  flex: 1;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  /* push footer down */
-}
-
-.info h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.info p {
-  padding: .2rem;
-  font-size: 1.4rem;
-}
-
-/* INFO */
-/* --- CONTAINER MIDDLE --- */
-
-
 /* FOOTER */
 .footer {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   padding: 1.2rem;
   background-color: #212121;
   color: white;
   font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
 .footer a {
