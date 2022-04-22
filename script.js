@@ -81,10 +81,10 @@ for (let i = 0; i < 3; i++) {
 // setText(cards.childNodes[1].childNodes[0], 'Baumit');
 // setText(cards.childNodes[2].childNodes[0], 'Remerse');
 
-cards.childNodes[0].childNodes[0].src = './velux.svg';
-cards.childNodes[1].childNodes[0].src = './baumit.png';
-cards.childNodes[2].childNodes[0].src = './remmers.svg';
+cards.childNodes[0].childNodes[0].src = './logos/velux.svg';
+cards.childNodes[1].childNodes[0].src = './logos/baumit.png';
+cards.childNodes[2].childNodes[0].src = './logos/remmers.svg';
 
-setImg(cards.childNodes[0].childNodes[1], './velux-card.jpeg');
-setImg(cards.childNodes[1].childNodes[1], './baumit-card.jpg');
-setImg(cards.childNodes[2].childNodes[1], './remmers-card.jpg');
+setImg(cards.childNodes[0].childNodes[1], './cards/velux-card.jpeg');
+setImg(cards.childNodes[1].childNodes[1], './cards/baumit-card.jpg');
+setImg(cards.childNodes[2].childNodes[1], './cards/remmers-card.jpg');
