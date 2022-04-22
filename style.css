@@ -65,6 +65,10 @@ body {
   padding: 1.5rem;
 }
 
+.card-1 {
+  width: 40rem;
+}
+
 img.card-0-title,
 img.card-1-title {
   height: 4rem;
@@ -78,19 +82,20 @@ img.card-2-title {
 }
 
 .card-0-img,
-.card-1-img,
 .card-2-img {
   display: flex;
   width: 25rem;
   height: auto;
   margin-top: 2rem;
-  border-radius: 12px;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
 
 .card-1-img {
+  display: flex;
   height: 25rem;
   width: auto;
+  margin-top: 2rem;
+  border-radius: 20px;
 }
 
 /* CARDS */
@@ -220,10 +225,25 @@ img.card-2-title {
 }
 
 /* FOOTER */
-/* 
-@media only screen and (max-width: 555px) {
-  .slide {
-    width: 21.6rem;
-    height: 24rem;
+
+@media only screen and (max-width: 736px) {
+  .card-1-img {
+    height: 15rem;
   }
-} */
+
+  .card-0-img,
+  .card-2-img {
+    width: 18rem;
+  }
+}
+
+@media only screen and (max-width: 455px) {
+  .card-1-img {
+    height: 10rem;
+  }
+
+  .card-0-img,
+  .card-2-img {
+    width: 14rem;
+  }
+}
