@@ -150,11 +150,6 @@ img.card-2-title {
   margin: 2rem;
 }
 
-.slides a {
-  all: unset;
-  cursor: pointer;
-}
-
 .navigation {
   display: flex;
   justify-content: center;
