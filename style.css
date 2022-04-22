@@ -180,14 +180,14 @@ img.card-2-title {
 
 #pg-0>div.right-side>img,
 #pg-2>div.right-side>img {
-  width: 20rem;
+  width: 30vh;
   height: auto;
   border-radius: 12px;
 }
 
 #pg-1>div.right-side>img {
   width: auto;
-  height: 20rem;
+  height: 30vh;
   border-radius: 12px;
 }
 
@@ -252,16 +252,12 @@ img.card-2-title {
   .card-2-img {
     width: 18rem;
   }
-
-  #pg-1>div.right-side>img {
-    height: 16rem;
-  }
 }
 
 
 @media only screen and (max-width: 676px) {
   #pg-1>div.right-side>img {
-    height: 12rem;
+    height: 38vw;
   }
 }
 
