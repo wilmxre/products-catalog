@@ -31,20 +31,20 @@ for (let i = 0; i < 3; i++) {
   navigation.appendChild(pg);
 }
 
-navigation.addEventListener('click', (e) => {
-  for (let i = 0; i < slides.childNodes.length; i++) {
-    if (navigation.childNodes[0].classList[0] === 'pg') {
-      slides.childNodes[i].childNodes[0].classList.add('display-none');
+let changePages = () => {
+  navigation.addEventListener('click', (e) => {
+    console.log(e.target.classList[0])
+    for (let i = 0; i < slides.childNodes.length; i++) {
+      if (navigation.childNodes[i].classList[0] === 'pg' && e.target.classList[0] !== 'navigation') {
+        console.log(1)
+        slides.childNodes[i].childNodes[0].classList.add('display-none');
+      }
+      if (e.target.id === slides.childNodes[i].childNodes[0].id.split(' ')[1]) {
+        slides.childNodes[i].childNodes[0].classList.remove('display-none');
+      }
     }
-    if (e.target.id === slides.childNodes[i].childNodes[0].id.split(' ')[1]) {
-      slides.childNodes[i].childNodes[0].classList.remove('display-none');
-    }
-  }
-});
-
-// remove slide from browser
-slides.childNodes[1].childNodes[0].classList.add('display-none');
-slides.childNodes[2].childNodes[0].classList.add('display-none');
+  });
+}
 
 // change text content of slide
 const setText = (elem, title) => {
@@ -76,11 +76,6 @@ for (let i = 0; i < 3; i++) {
   cards.appendChild(card);
 }
 
-
-// setText(cards.childNodes[0].childNodes[0], 'Velux');
-// setText(cards.childNodes[1].childNodes[0], 'Baumit');
-// setText(cards.childNodes[2].childNodes[0], 'Remerse');
-
 cards.childNodes[0].childNodes[0].src = './logos/velux.svg';
 cards.childNodes[1].childNodes[0].src = './logos/baumit.png';
 cards.childNodes[2].childNodes[0].src = './logos/remmers.svg';
@@ -88,3 +83,11 @@ cards.childNodes[2].childNodes[0].src = './logos/remmers.svg';
 setImg(cards.childNodes[0].childNodes[1], './cards/velux-card.jpeg');
 setImg(cards.childNodes[1].childNodes[1], './cards/baumit-card.jpg');
 setImg(cards.childNodes[2].childNodes[1], './cards/remmers-card.jpg');
+
+window.onload = () => {
+  // remove slide from browser
+  slides.childNodes[1].childNodes[0].classList.add('display-none');
+  slides.childNodes[2].childNodes[0].classList.add('display-none');
+
+  changePages();
+}
