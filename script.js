@@ -39,6 +39,22 @@ for (let i = 0; i < 3; i++) {
   navigation.appendChild(pg);
 }
 
+slideIndex = 0;
+let slideShow = () => {
+  for (let i = 0; i < slides.childNodes.length; i++) {
+    slides.childNodes[i].classList.add('display-none');
+  }
+  slideIndex++;
+
+  if (slideIndex > slides.childNodes.length) {
+    slideIndex = 1;
+  }
+
+  slides.childNodes[slideIndex - 1].classList.remove('display-none');
+  setTimeout(slideShow, 5000);
+}
+
+
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
     for (let i = 0; i < slides.childNodes.length; i++) {
@@ -122,4 +138,5 @@ window.onload = () => {
   slides.childNodes[2].classList.add('display-none');
 
   changePages();
+  slideShow();
 }
