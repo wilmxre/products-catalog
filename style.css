@@ -47,7 +47,6 @@ body {
 .cards {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
   flex-wrap: wrap;
   margin: 2rem 0;
@@ -146,8 +145,55 @@ img.card-2-title {
 /* SLIDES */
 .slides {
   display: flex;
-  flex-direction: column;
   margin: 2rem;
+}
+
+/* .left-side {
+  margin-left: 2rem;
+}
+
+.right-side {
+  margin-right: 2rem;
+} */
+
+.slide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 75vh;
+  width: 80vw;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.slide-title {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 5rem;
+  font-size: 3rem;
+  padding: 1.5rem;
+  color: #212121;
+}
+
+
+#pg-0>div.right-side>img,
+#pg-2>div.right-side>img {
+  width: 20rem;
+  height: auto;
+  border-radius: 12px;
+}
+
+#pg-1>div.right-side>img {
+  width: auto;
+  height: 20rem;
+  border-radius: 12px;
+}
+
+.display-none {
+  display: none;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .navigation {
@@ -162,36 +208,6 @@ img.card-2-title {
   border-radius: 6px;
   margin: 0 .4rem;
   cursor: pointer;
-}
-
-.slide {
-  height: 75vh;
-  width: 80vw;
-  background-color: #ffffff;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-}
-
-.display-none {
-  display: none;
-  /* transition: all 0.5s ease-in-out; */
-}
-
-.slide-title {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  height: 5rem;
-  font-size: 3rem;
-  padding: 1.5rem;
-  color: #212121;
-}
-
-.slide-img {
-  height: 35rem;
-  width: 35rem;
-  border-radius: 12px;
-  display: none;
 }
 
 /* SLIDES */
@@ -221,6 +237,12 @@ img.card-2-title {
 
 /* FOOTER */
 
+@media only screen and (max-width: 960px) {
+  .slide {
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 736px) {
   .card-1-img {
     height: 15rem;
@@ -229,6 +251,17 @@ img.card-2-title {
   .card-0-img,
   .card-2-img {
     width: 18rem;
+  }
+
+  #pg-1>div.right-side>img {
+    height: 16rem;
+  }
+}
+
+
+@media only screen and (max-width: 676px) {
+  #pg-1>div.right-side>img {
+    height: 12rem;
   }
 }
 

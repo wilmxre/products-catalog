@@ -1,21 +1,37 @@
+// SLIDES ----- >
+
 const slides = document.querySelector('.slides');
 const navigation = document.querySelector('.navigation');
 
 for (let i = 0; i < 3; i++) {
   const slide = document.createElement('div');
   slide.classList.add('slide');
-  slide.setAttribute('id', `slide-${i} pg-${i}`);
+  slide.setAttribute('id', `pg-${i}`);
+
+  const leftSlide = document.createElement('div');
+  leftSlide.classList.add('left-side');
 
   const slideTitle = document.createElement('div');
   slideTitle.classList.add('slide-title');
-  slideTitle.textContent = 'Velux';
-  slide.appendChild(slideTitle);
+  leftSlide.appendChild(slideTitle);
+
+  const slideText = document.createElement('div');
+  slideText.classList.add('slide-text');
+  slideText.textContent = 'Lorem ipsum dolor sit amet';
+  leftSlide.appendChild(slideText);
+
+  slide.appendChild(leftSlide);
+
+  const rightSlide = document.createElement('div');
+  rightSlide.classList.add('right-side');
 
   const slideImage = document.createElement('img');
-  slideImage.src = 'https://i.picsum.photos/id/1003/1181/1772.jpg?hmac=oN9fHMXiqe9Zq2RM6XT-RVZkojgPnECWwyEF1RvvTZk';
   slideImage.classList.add('slide-img');
-  slide.appendChild(slideImage);
-  slides.appendChild(slide)
+  rightSlide.appendChild(slideImage);
+
+  slide.appendChild(rightSlide);
+
+  slides.appendChild(slide);
 
   const pg = document.createElement('div');
   pg.classList.add('pg');
@@ -25,31 +41,32 @@ for (let i = 0; i < 3; i++) {
 
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
-    console.log(e.target.classList[0])
     for (let i = 0; i < slides.childNodes.length; i++) {
       if (navigation.childNodes[i].classList[0] === 'pg' && e.target.classList[0] !== 'navigation') {
-        console.log(1)
         slides.childNodes[i].classList.add('display-none');
       }
-      if (e.target.id === slides.childNodes[i].id.split(' ')[1]) {
+      if (e.target.id === slides.childNodes[i].id) {
         slides.childNodes[i].classList.remove('display-none');
       }
     }
   });
 }
 
-// change text content of slide
-const setText = (elem, title) => {
-  elem.textContent = title;
-}
-
 const setSrc = (elem, field, src) => {
   elem[field] = src;
 }
 
-setText(slides.childNodes[1].childNodes[0].childNodes[0], 'Baumit')
-setText(slides.childNodes[2].childNodes[0].childNodes[0], 'Remerse')
+// set slide titles
+setSrc(slides.childNodes[0].childNodes[0].childNodes[0], 'textContent', 'Velux')
+setSrc(slides.childNodes[1].childNodes[0].childNodes[0], 'textContent', 'Baumit');
+setSrc(slides.childNodes[2].childNodes[0].childNodes[0], 'textContent', 'Remerse');
 
+// set slide images
+setSrc(slides.childNodes[0].childNodes[1].childNodes[0], 'src', './cards/velux-card.jpeg');
+setSrc(slides.childNodes[1].childNodes[1].childNodes[0], 'src', './cards/baumit-card.jpg');
+setSrc(slides.childNodes[2].childNodes[1].childNodes[0], 'src', './cards/remmers-card.jpg');
+
+// CARDS ----- >
 
 const cards = document.querySelector('.cards');
 
