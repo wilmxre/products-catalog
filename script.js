@@ -57,7 +57,7 @@ const setSrc = (elem, field, src) => {
 }
 
 // set slide titles
-setSrc(slides.childNodes[0].childNodes[0].childNodes[0], 'textContent', 'Velux')
+setSrc(slides.childNodes[0].childNodes[0].childNodes[0], 'textContent', 'Velux');
 setSrc(slides.childNodes[1].childNodes[0].childNodes[0], 'textContent', 'Baumit');
 setSrc(slides.childNodes[2].childNodes[0].childNodes[0], 'textContent', 'Remerse');
 
@@ -66,6 +66,12 @@ setSrc(slides.childNodes[0].childNodes[1].childNodes[0], 'src', './cards/velux-c
 setSrc(slides.childNodes[1].childNodes[1].childNodes[0], 'src', './cards/baumit-card.jpg');
 setSrc(slides.childNodes[2].childNodes[1].childNodes[0], 'src', './cards/remmers-card.jpg');
 
+// set slide text
+setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+
+setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+
+setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
 // CARDS ----- >
 
 const cards = document.querySelector('.cards');

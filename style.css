@@ -25,6 +25,7 @@ body {
   font-size: 1.4rem;
   padding-top: 1.5rem;
   margin-left: 4rem;
+  user-select: none;
 }
 
 .language img {
@@ -50,6 +51,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   margin: 2rem 0;
+  user-select: none;
 }
 
 .card-0,
@@ -132,6 +134,7 @@ img.card-2-title {
 .container-middle {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .mid-wrap {
@@ -148,17 +151,8 @@ img.card-2-title {
   margin: 2rem;
 }
 
-/* .left-side {
-  margin-left: 2rem;
-}
-
-.right-side {
-  margin-right: 2rem;
-} */
-
 .slide {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   height: 75vh;
   width: 80vw;
@@ -167,28 +161,55 @@ img.card-2-title {
   border-radius: 12px;
 }
 
-.slide-title {
+.left-side {
   display: flex;
   align-items: center;
-  justify-content: start;
+  flex-direction: column;
+  padding: 0 2rem 2rem 2rem;
+  flex: 2;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 2rem 2rem;
+  flex: 1;
+}
+
+.slide-title {
+  display: flex;
   height: 5rem;
   font-size: 3rem;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   color: #212121;
 }
 
+.slide-text {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  text-align: justify;
+  max-width: 40vw;
+}
+
+
+#pg-1>div.left-side {
+  flex: 2;
+}
 
 #pg-0>div.right-side>img,
 #pg-2>div.right-side>img {
   width: 30vh;
   height: auto;
   border-radius: 12px;
+  user-select: none;
 }
 
 #pg-1>div.right-side>img {
   width: auto;
   height: 30vh;
   border-radius: 12px;
+  user-select: none;
 }
 
 .display-none {
@@ -257,7 +278,7 @@ img.card-2-title {
 
 @media only screen and (max-width: 676px) {
   #pg-1>div.right-side>img {
-    height: 38vw;
+    height: 40vw;
   }
 }
 
