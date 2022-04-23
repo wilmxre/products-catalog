@@ -166,6 +166,11 @@ img.card-2-title {
   user-select: none;
 }
 
+.prev:hover,
+.next:hover {
+  color: #7a7a7a;
+}
+
 .slides {
   display: flex;
 }
@@ -266,6 +271,10 @@ img.card-2-title {
   margin: 0 .4rem;
   cursor: pointer;
   transition: background-color 0.5s ease;
+}
+
+.pg:hover {
+  background-color: #7a7a7a;
 }
 
 .active {

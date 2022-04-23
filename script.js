@@ -91,27 +91,16 @@ let startSlides = () => {
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
-// next and prev button basically
-// let goToSlide = (n) => {
-//   clearInterval(interval);
-//   slideIndex += n;
-//   nextSlide();
-//   interval = setInterval(nextSlide, delay);
-// }
-
-// prev.addEventListener('click', goToSlide(-2));
-// next.addEventListener('click', goToSlide(0));
-
 prev.addEventListener('click', (e) => {
-  console.log(e.target);
-  console.log(slideIndex)
+  clearInterval(interval);
   goToPage(slideIndex, -1);
+  interval = setInterval(nextSlide, delay);
 });
 
 next.addEventListener('click', (e) => {
-  console.log(e.target);
-  console.log(slideIndex)
+  clearInterval(interval);
   goToPage(slideIndex, 1);
+  interval = setInterval(nextSlide, delay);
 });
 
 
