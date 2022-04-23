@@ -41,9 +41,11 @@ for (let i = 0; i < 3; i++) {
 }
 
 // initialize slideshow variables
-let slideIndex = 1,
+let slideIndex = 2,
   delay = 5000,
   interval = 0;
+
+// console.log(slides.childNodes.length)
 
 // create slideshow
 let slideShow = () => {
@@ -86,6 +88,80 @@ let startSlides = () => {
   interval = setInterval(nextSlide, delay);
 }
 
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+// next and prev button basically
+// let goToSlide = (n) => {
+//   clearInterval(interval);
+//   slideIndex += n;
+//   nextSlide();
+//   interval = setInterval(nextSlide, delay);
+// }
+
+// prev.addEventListener('click', goToSlide(-2));
+// next.addEventListener('click', goToSlide(0));
+
+prev.addEventListener('click', (e) => {
+  console.log(e.target);
+  console.log(slideIndex)
+  goToPage(slideIndex, -1);
+});
+
+next.addEventListener('click', (e) => {
+  console.log(e.target);
+  console.log(slideIndex)
+  goToPage(slideIndex, 1);
+});
+
+
+let goToPage = (page, dir) => {  //dir 1 -> next, dir -1 -> prev
+  switch (page) {
+    case 2:
+      if (dir === 1) {
+        changeP(1);
+        slideIndex = 3;
+      }
+      if (dir === -1) {
+        changeP(2);
+        slideIndex = 4;
+      }
+      break;
+    case 3:
+      if (dir === 1) {
+        changeP(2);
+        slideIndex = 4;
+      }
+      if (dir === -1) {
+        changeP(0);
+        slideIndex = 2
+      }
+      break;
+    case 4:
+      if (dir === 1) {
+        changeP(0);
+        slideIndex = 2
+      }
+      if (dir === -1) {
+        changeP(1);
+        slideIndex = 3
+      }
+      break;
+    default:
+  }
+}
+
+changeP = (page) => {
+  for (let i = 0; i < slides.childNodes.length; i++) {
+    slides.childNodes[i].classList.add('display-none');
+    navigation.childNodes[i].classList.remove('active');
+  }
+  slides.childNodes[page].classList.remove('display-none');
+  navigation.childNodes[page].classList.add('active');
+}
+
+console.log(slides.childNodes[0].id.split('-')[1])
+
 // change to specified page
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
@@ -102,7 +178,7 @@ let changePages = () => {
   });
 }
 
-navigation.childNodes[0].classList.add('active');
+navigation.childNodes[1].classList.add('active');
 
 const setSrc = (elem, field, src) => {
   elem[field] = src;
@@ -119,11 +195,11 @@ setSrc(slides.childNodes[1].childNodes[1].childNodes[0], 'src', './cards/baumit-
 setSrc(slides.childNodes[2].childNodes[1].childNodes[0], 'src', './cards/remmers-card.jpg');
 
 // set slide text
-setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
 
-setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
 
-setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
 
 
 // CARDS ----- >
@@ -172,7 +248,7 @@ setSrc(cards.childNodes[2].childNodes[1], 'href', 'https://www.remmers.hu/hu')
 
 window.onload = () => {
   // remove slide from browser
-  slides.childNodes[1].classList.add('display-none');
+  slides.childNodes[0].classList.add('display-none');
   slides.childNodes[2].classList.add('display-none');
 
   slides.setAttribute('onmouseenter', 'pauseSlides()');
