@@ -3,6 +3,7 @@
 const slides = document.querySelector('.slides');
 const navigation = document.querySelector('.navigation');
 
+// create slides
 for (let i = 0; i < 3; i++) {
   const slide = document.createElement('div');
   slide.classList.add('slide');
@@ -39,15 +40,23 @@ for (let i = 0; i < 3; i++) {
   navigation.appendChild(pg);
 }
 
-slideIndex = 0;
+// initialize slideshow variables
+let slideIndex = 1,
+  delay = 5000,
+  interval = 0;
+
+// create slideshow
 let slideShow = () => {
   for (let i = 0; i < slides.childNodes.length; i++) {
     slides.childNodes[i].classList.add('display-none');
   }
-  slideIndex++;
 
   if (slideIndex > slides.childNodes.length) {
     slideIndex = 1;
+  }
+
+  if (slideIndex < 1) {
+    slideIndex = slides.childNodes.length;
   }
 
   for (let i = 0; i < navigation.childNodes.length; i++) {
@@ -56,21 +65,44 @@ let slideShow = () => {
 
   slides.childNodes[slideIndex - 1].classList.remove('display-none');
   navigation.childNodes[slideIndex - 1].className += ' active';
-  setTimeout(slideShow, 5000);
+
 }
-console.log(navigation.childNodes[0])
+
+// pause slides when mouse is on the slide
+let pauseSlides = () => {
+  clearInterval(interval);
+}
+
+// go to next slide
+let nextSlide = () => {
+  slideShow();
+  slideIndex++;
+}
+
+// start slideshow, with every iteration being delayed
+let startSlides = () => {
+  pauseSlides();
+  nextSlide();
+  interval = setInterval(nextSlide, delay);
+}
+
+// change to specified page
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
     for (let i = 0; i < slides.childNodes.length; i++) {
       if (navigation.childNodes[i].classList[0] === 'pg' && e.target.classList[0] !== 'navigation') {
         slides.childNodes[i].classList.add('display-none');
+        navigation.childNodes[i].classList.remove('active');
       }
       if (e.target.id === slides.childNodes[i].id) {
         slides.childNodes[i].classList.remove('display-none');
+        navigation.childNodes[i].classList.add('active');
       }
     }
   });
 }
+
+navigation.childNodes[0].classList.add('active');
 
 const setSrc = (elem, field, src) => {
   elem[field] = src;
@@ -79,7 +111,7 @@ const setSrc = (elem, field, src) => {
 // set slide titles
 setSrc(slides.childNodes[0].childNodes[0].childNodes[0], 'textContent', 'Velux');
 setSrc(slides.childNodes[1].childNodes[0].childNodes[0], 'textContent', 'Baumit');
-setSrc(slides.childNodes[2].childNodes[0].childNodes[0], 'textContent', 'Remerse');
+setSrc(slides.childNodes[2].childNodes[0].childNodes[0], 'textContent', 'Remmers');
 
 // set slide images
 setSrc(slides.childNodes[0].childNodes[1].childNodes[0], 'src', './cards/velux-card.jpeg');
@@ -92,6 +124,8 @@ setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', 'Lorem i
 setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
 
 setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo tempore laboriosam, at ut temporibus natus aliquid neque fugit, magni voluptatum laudantium fugiat voluptas. Et, placeat totam ea dolores sapiente molestiae dicta, accusantium voluptas excepturi corrupti incidunt. Quas quod sapiente totam ipsum obcaecati minima voluptatum saepe consequatur. Hic minus sequi amet.');
+
+
 // CARDS ----- >
 
 const cards = document.querySelector('.cards');
@@ -141,6 +175,9 @@ window.onload = () => {
   slides.childNodes[1].classList.add('display-none');
   slides.childNodes[2].classList.add('display-none');
 
+  slides.setAttribute('onmouseenter', 'pauseSlides()');
+  slides.setAttribute('onmouseleave', 'startSlides()');
+
   changePages();
-  slideShow();
+  startSlides();
 }
