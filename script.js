@@ -50,11 +50,15 @@ let slideShow = () => {
     slideIndex = 1;
   }
 
+  for (let i = 0; i < navigation.childNodes.length; i++) {
+    navigation.childNodes[i].className = navigation.childNodes[i].className.replace(' active', '');
+  }
+
   slides.childNodes[slideIndex - 1].classList.remove('display-none');
+  navigation.childNodes[slideIndex - 1].className += ' active';
   setTimeout(slideShow, 5000);
 }
-
-
+console.log(navigation.childNodes[0])
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
     for (let i = 0; i < slides.childNodes.length; i++) {
