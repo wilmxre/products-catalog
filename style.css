@@ -51,8 +51,10 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  margin: 4rem auto;
   user-select: none;
+  max-width: calc(31rem + 50vw);
+  gap: 6rem;
 }
 
 .card-0,
@@ -62,13 +64,7 @@ body {
   flex: 1;
   flex-direction: column;
   align-items: center;
-  width: 28rem;
   font-size: 2.4rem;
-  padding: 1.5rem;
-}
-
-.card-1 {
-  width: 40rem;
 }
 
 img.card-0-title,
@@ -86,7 +82,7 @@ img.card-2-title {
 .card-0-img,
 .card-2-img {
   display: flex;
-  width: 25rem;
+  width: 18.33vw;
   height: auto;
   margin-top: 2rem;
   border-radius: 20px;
@@ -94,7 +90,7 @@ img.card-2-title {
 
 .card-1-img {
   display: flex;
-  height: 25rem;
+  height: 18.33vw;
   width: auto;
   margin-top: 2rem;
   border-radius: 20px;
@@ -107,22 +103,19 @@ img.card-2-title {
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
-  max-width: 60rem;
-  height: 10rem;
   margin: 0 auto;
 }
 
 .info h2 {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .info p {
   padding: .2rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 /* INFO */
@@ -171,85 +164,65 @@ img.card-2-title {
   color: #7a7a7a;
 }
 
-.slides {
-  display: flex;
-}
-
 .slide {
   display: flex;
+  flex-direction: row;
+  flex: 1 0 100%;
+  /* flex-wrap: wrap; */
+  justify-content: center;
   align-items: center;
-  height: 75vh;
-  width: 80vw;
   background-color: #ffffff;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   animation: slideshow 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  width: 75.7vw;
+  height: 37vw;
 }
 
-@keyframes slideshow {
-  0% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.left-side {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 2rem 2rem 2rem;
-  flex: 2;
-}
-
+.left-side,
 .right-side {
   display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
   justify-content: center;
-  padding: 0 2rem 2rem 2rem;
-  flex: 1;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .slide-title {
-  display: flex;
-  height: 5rem;
-  font-size: 3rem;
+  font-size: 3.2rem;
+  text-align: center;
   padding: 0 1.5rem;
   color: #212121;
 }
 
 .slide-text {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 1.2rem;
-  text-align: justify;
-  max-width: 35vw;
+  width: 25vw;
+  font-size: 1.4rem;
 }
 
-
-#pg-1>div.left-side {
-  flex: 2;
-}
-
-#pg-0>div.right-side>img,
-#pg-2>div.right-side>img {
-  width: 50vh;
-  height: auto;
+.slide-img {
+  height: 25vw;
   border-radius: 12px;
   user-select: none;
-  margin-right: 6rem;
 }
 
 #pg-1>div.right-side>img {
-  width: auto;
-  height: 50vh;
-  border-radius: 12px;
-  user-select: none;
+  height: 22vw;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .display-none {
@@ -260,7 +233,7 @@ img.card-2-title {
 .navigation {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2.5rem 0 1.5rem 0;
 }
 
 .pg {
@@ -291,7 +264,6 @@ img.card-2-title {
   background-color: #212121;
   color: white;
   font-size: 1.2rem;
-  margin-top: 2rem;
 }
 
 .footer a {
@@ -308,10 +280,59 @@ img.card-2-title {
 
 /* FOOTER */
 
-@media only screen and (max-width: 960px) {
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1796px) {
+
+  .info h2 {
+    font-size: 1.8rem;
+  }
+
+  .info p {
+    font-size: 1.4rem;
+  }
+
+  .slide-title {
+    font-size: 2.6rem;
+  }
+
+  .slide-text {
+    font-size: 1.2rem;
+  }
+
+  .slide-img {
+    height: 22rem;
+  }
+}
+
+@media only screen and (max-width: 1441px) {
+
+  .card-0-img,
+  .card-2-img {
+    width: 16.5rem;
+  }
+
+  .card-1-img {
+    height: 16.5rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
   .slide {
     flex-direction: column;
+    width: 60vh;
+    height: 100vh;
+    padding-top: 1rem;
   }
+
+  .slide-title {
+    padding: 1rem 0;
+  }
+
+  .slide-img {
+    height: 20vh;
+  }
+
 }
 
 @media only screen and (max-width: 736px) {
@@ -322,13 +343,6 @@ img.card-2-title {
   .card-0-img,
   .card-2-img {
     width: 18rem;
-  }
-}
-
-
-@media only screen and (max-width: 676px) {
-  #pg-1>div.right-side>img {
-    height: 40vw;
   }
 }
 

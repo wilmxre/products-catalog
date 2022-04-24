@@ -149,8 +149,6 @@ changeP = (page) => {
   navigation.childNodes[page].classList.add('active');
 }
 
-console.log(slides.childNodes[0].id.split('-')[1])
-
 // change to specified page
 let changePages = () => {
   navigation.addEventListener('click', (e) => {
