@@ -368,6 +368,12 @@ img.card-2-title {
 }
 
 @media only screen and (max-width: 455px) {
+
+  .next,
+  .prev {
+    display: none;
+  }
+
   .card-1-img {
     height: 10rem;
   }
