@@ -245,4 +245,39 @@ window.onload = () => {
   startSlides();
 }
 
-console.log(window.innerWidth)
+const ro = document.querySelector('#ro');
+const hu = document.querySelector('#hu');
+
+let changeLanguage = (language) => {
+  location.hash = language;
+  location.reload();
+}
+
+let lang = {
+  hu: {
+    info: 'Rendelésért az elérhetőség:',
+    location: 'Csíkszereda'
+  },
+  ro: {
+    info: 'Pentru comanda, detaliile:',
+    location: 'Miercurea Ciuc'
+  }
+}
+
+const infoName = document.querySelector("body > div.container-top > div.info > h2");
+const infoLocation = document.querySelector("body > div.container-top > div.info > p:nth-child(3)");
+
+
+if (window.location.hash == '#hu') {
+  infoName.textContent = lang.hu.info;
+  infoLocation.textContent = lang.hu.location;
+}
+
+else if (window.location.hash == '#ro') {
+  infoName.textContent = lang.ro.info;
+  infoLocation.textContent = lang.ro.location;
+}
+
+
+ro.addEventListener('click', () => changeLanguage('ro'));
+hu.addEventListener('click', () => changeLanguage('hu'));
