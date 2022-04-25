@@ -109,7 +109,7 @@ img.card-2-title {
 .info {
   display: flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 4rem 4rem 0 4rem;
   text-align: center;
   margin: 0 auto;
 }
@@ -174,7 +174,6 @@ img.card-2-title {
   display: flex;
   flex-direction: row;
   flex: 1 0 100%;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
@@ -182,9 +181,8 @@ img.card-2-title {
   border-radius: 12px;
   animation: slideshow 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   width: 75.7vw;
-  /* height: 37vw; */
   height: 70%;
-  /* padding: 5vw; */
+  margin-top: 2rem;
 }
 
 .left-side,
@@ -337,7 +335,7 @@ img.card-2-title {
 
   .slide-text {
     font-size: 1.2rem;
-    /* width: 40vw; */
+    text-align: left;
   }
 }
 
