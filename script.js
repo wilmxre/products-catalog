@@ -222,10 +222,6 @@ setSrc(cards.childNodes[0].childNodes[1], 'href', 'https://f.hubspotusercontent4
 setSrc(cards.childNodes[1].childNodes[0], 'href', 'https://baumit.ro/files/ro/brochure/01-21_BAUMIT_Pricelist_RO_2022_pdf-mic_compressed_site.pdf')
 setSrc(cards.childNodes[1].childNodes[1], 'href', 'https://baumit.ro/files/ro/brochure/01-21_BAUMIT_Pricelist_RO_2022_pdf-mic_compressed_site.pdf')
 
-setSrc(cards.childNodes[2].childNodes[0], 'href', 'https://www.remmers.hu/hu')
-setSrc(cards.childNodes[2].childNodes[1], 'href', 'https://www.remmers.hu/hu')
-
-
 // LANGUAGE
 const ro = document.querySelector('#ro');
 const hu = document.querySelector('#hu');
@@ -244,6 +240,10 @@ let lang = {
     textVelux: 'Velux szovege magyarul',
     textBaumit: 'Baumit szovege magyarul',
     textRemmers: 'Remmers szovege magyarul',
+
+    back: 'Menj vissza a fo oldalra!',
+    textRemmersCard: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas accusamus harum doloribus perferendis eveniet sequi cumque. Dignissimos aperiam autem sit, nisi neque, cupiditate ratione repellendus cumque illo consectetur laborum eveniet!',
+    textRemmersAttention: 'Click a kartyara!'
   },
   ro: {
     info: 'Pentru comanda, detaliile:',
@@ -252,8 +252,17 @@ let lang = {
     textVelux: 'Velux szovege romanul',
     textBaumit: 'Baumit szovege romanul',
     textRemmers: 'Remmers szovege romanul',
+
+    back: 'Menj vissza a fo oldalra! romanul',
+    textRemmersCard: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas accusamus harum doloribus perferendis eveniet sequi cumque. Dignissimos aperiam autem sit, nisi neque, cupiditate ratione repellendus cumque illo consectetur laborum eveniet! romanul',
+    textRemmersAttention: 'Click a kartyara, de romanul!'
   }
 }
+// Gmail es GitHub-on is:
+// e-mail: agostonhajnal.santago@gmail.com
+// password: 64bYc6x9#N
+
+//oldal neve: https://santagoshop.github.io/home/
 
 // set slide text
 setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', lang.hu.textVelux);
@@ -269,6 +278,62 @@ const slideTextVelux = document.querySelector("#pg-0 > div.left-side > div.slide
 const slideTextBaumit = document.querySelector("#pg-1 > div.left-side > div.slide-text");
 const slideTextRemmers = document.querySelector("#pg-2 > div.left-side > div.slide-text");
 
+const containerRemmers = document.createElement('div');
+containerRemmers.classList.add('container-remmers');
+
+const anchor = document.createElement('a');
+anchor.href = 'https://www.remmers.hu/hu';
+
+const textBox = document.createElement('div');
+textBox.classList.add('textbox');
+
+const cardText = document.createElement('div');
+cardText.classList.add('long-text');
+
+const cardAttention = document.createElement('div');
+cardAttention.classList.add('attention');
+
+const titleRemmers = document.querySelector("body > div.container-top > div.cards > div.card-2 > a:nth-child(1) > img");
+
+const imgRemmers = document.querySelector("body > div.container-top > div.cards > div.card-2 > a:nth-child(2) > img");
+
+const goBack = document.createElement('div');
+goBack.classList.add('go-back');
+goBack.textContent = 'Go Back!';
+
+cardText.textContent = lang.hu.textRemmersCard;
+cardAttention.textContent = lang.hu.textRemmersAttention;
+goBack.textContent = lang.hu.back;
+
+textBox.appendChild(cardText);
+textBox.appendChild(cardAttention);
+anchor.appendChild(textBox);
+containerRemmers.appendChild(goBack);
+containerRemmers.appendChild(anchor);
+
+document.body.appendChild(containerRemmers);
+containerRemmers.style.display = 'none';
+
+const containerTop = document.querySelector('.container-top');
+const containerMiddle = document.querySelector('.container-middle');
+
+goBack.addEventListener('click', () => {
+  containerTop.style.display = 'flex';
+  containerMiddle.style.display = 'flex';
+  containerRemmers.style.display = 'none';
+})
+
+let remmersClicked = (rem) => {
+  rem.addEventListener('click', () => {
+    containerTop.style.display = 'none';
+    containerMiddle.style.display = 'none';
+    containerRemmers.style.display = 'flex';
+  })
+}
+
+remmersClicked(titleRemmers);
+remmersClicked(imgRemmers);
+
 if (window.location.hash == '#hu') {
   infoName.textContent = lang.hu.info;
   infoLocation.textContent = lang.hu.location;
@@ -276,6 +341,10 @@ if (window.location.hash == '#hu') {
   slideTextVelux.textContent = lang.hu.textVelux;
   slideTextBaumit.textContent = lang.hu.textBaumit;
   slideTextRemmers.textContent = lang.hu.textRemmers;
+
+  goBack.textContent = lang.hu.back;
+  cardText.textContent = lang.hu.textRemmersCard;
+  cardAttention.textContent = lang.hu.textRemmersAttention;
 }
 
 else if (window.location.hash == '#ro') {
@@ -285,6 +354,10 @@ else if (window.location.hash == '#ro') {
   slideTextVelux.textContent = lang.ro.textVelux;
   slideTextBaumit.textContent = lang.ro.textBaumit;
   slideTextRemmers.textContent = lang.ro.textRemmers;
+
+  goBack.textContent = lang.ro.back;
+  cardText.textContent = lang.ro.textRemmersCard;
+  cardAttention.textContent = lang.ro.textRemmersAttention;
 }
 
 window.onload = () => {
