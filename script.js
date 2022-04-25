@@ -181,14 +181,6 @@ setSrc(slides.childNodes[0].childNodes[1].childNodes[0], 'src', './cards/velux-c
 setSrc(slides.childNodes[1].childNodes[1].childNodes[0], 'src', './cards/baumit-card.jpg');
 setSrc(slides.childNodes[2].childNodes[1].childNodes[0], 'src', './cards/remmers-card.jpg');
 
-// set slide text
-setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
-
-setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
-
-setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, illum? Tenetur rerum libero, nam deleniti deserunt perferendis facilis laboriosam, repudiandae explicabo perspiciatis quasi voluptas ipsam doloremque! Earum reprehenderit quo at eveniet. Reprehenderit voluptas doloremque laborum ipsa non laboriosam quidem. Distinctio repudiandae dolor, quia aliquid necessitatibus porro accusamus quo voluptatibus reprehenderit molestias, quasi, maxime ipsum dolore facilis ipsa quaerat! Aut consectetur reiciendis quidem quisquam minus fugiat eligendi similique odio molestiae illum.');
-
-
 // CARDS ----- >
 
 const cards = document.querySelector('.cards');
@@ -247,22 +239,28 @@ let lang = {
   hu: {
     info: 'Rendelésért az elérhetőség:',
     location: 'Csíkszereda',
-    text: 'Talpra magyar, hiv a haza, itt az ido, most vagy soha!',
 
-    textVelux: '',
-    textBaumit: '',
-    textRemmers: '',
+    //ide az aposztrofok koze kell irni a szoveget kulon-kulon, <= 70 szo
+    textVelux: 'Velux szovege magyarul',
+    textBaumit: 'Baumit szovege magyarul',
+    textRemmers: 'Remmers szovege magyarul',
   },
   ro: {
     info: 'Pentru comanda, detaliile:',
     location: 'Miercurea Ciuc',
-    text: 'Desteapta-te, romane, din somnul cel de moarte!',
 
-    textVelux: '',
-    textBaumit: '',
-    textRemmers: '',
+    textVelux: 'Velux szovege romanul',
+    textBaumit: 'Baumit szovege romanul',
+    textRemmers: 'Remmers szovege romanul',
   }
 }
+
+// set slide text
+setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', lang.hu.textVelux);
+
+setSrc(slides.childNodes[1].childNodes[0].childNodes[1], 'textContent', lang.hu.textBaumit);
+
+setSrc(slides.childNodes[2].childNodes[0].childNodes[1], 'textContent', lang.hu.textRemmers);
 
 const infoName = document.querySelector("body > div.container-top > div.info > h2");
 const infoLocation = document.querySelector("body > div.container-top > div.info > p:nth-child(3)");
@@ -274,21 +272,19 @@ const slideTextRemmers = document.querySelector("#pg-2 > div.left-side > div.sli
 if (window.location.hash == '#hu') {
   infoName.textContent = lang.hu.info;
   infoLocation.textContent = lang.hu.location;
-  slideTextVelux.textContent = slideTextBaumit.textContent = slideTextRemmers.textContent = lang.hu.text;
 
-  // slideTextVelux.textContent = lang.hu.textVelux;
-  // slideTextBaumit.textContent = lang.hu.textBaumit;
-  // slideTextRemmers.textContent = lang.hu.textRemmers;
+  slideTextVelux.textContent = lang.hu.textVelux;
+  slideTextBaumit.textContent = lang.hu.textBaumit;
+  slideTextRemmers.textContent = lang.hu.textRemmers;
 }
 
 else if (window.location.hash == '#ro') {
   infoName.textContent = lang.ro.info;
   infoLocation.textContent = lang.ro.location;
-  slideTextVelux.textContent = slideTextBaumit.textContent = slideTextRemmers.textContent = lang.ro.text;
 
-  //   slideTextVelux.textContent = lang.ro.textVelux;
-  //   slideTextBaumit.textContent = lang.ro.textBaumit;
-  //   slideTextRemmers.textContent = lang.ro.textRemmers;
+  slideTextVelux.textContent = lang.ro.textVelux;
+  slideTextBaumit.textContent = lang.ro.textBaumit;
+  slideTextRemmers.textContent = lang.ro.textRemmers;
 }
 
 window.onload = () => {
