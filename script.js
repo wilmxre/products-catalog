@@ -233,18 +233,8 @@ setSrc(cards.childNodes[1].childNodes[1], 'href', 'https://baumit.ro/files/ro/br
 setSrc(cards.childNodes[2].childNodes[0], 'href', 'https://www.remmers.hu/hu')
 setSrc(cards.childNodes[2].childNodes[1], 'href', 'https://www.remmers.hu/hu')
 
-window.onload = () => {
-  // remove slide from browser
-  slides.childNodes[0].classList.add('display-none');
-  slides.childNodes[2].classList.add('display-none');
 
-  slides.setAttribute('onmouseenter', 'pauseSlides()');
-  slides.setAttribute('onmouseleave', 'startSlides()');
-
-  changePages();
-  startSlides();
-}
-
+// LANGUAGE
 const ro = document.querySelector('#ro');
 const hu = document.querySelector('#hu');
 
@@ -256,28 +246,62 @@ let changeLanguage = (language) => {
 let lang = {
   hu: {
     info: 'Rendelésért az elérhetőség:',
-    location: 'Csíkszereda'
+    location: 'Csíkszereda',
+    text: 'Talpra magyar, hiv a haza, itt az ido, most vagy soha!',
+
+    textVelux: '',
+    textBaumit: '',
+    textRemmers: '',
   },
   ro: {
     info: 'Pentru comanda, detaliile:',
-    location: 'Miercurea Ciuc'
+    location: 'Miercurea Ciuc',
+    text: 'Desteapta-te, romane, din somnul cel de moarte!',
+
+    textVelux: '',
+    textBaumit: '',
+    textRemmers: '',
   }
 }
 
 const infoName = document.querySelector("body > div.container-top > div.info > h2");
 const infoLocation = document.querySelector("body > div.container-top > div.info > p:nth-child(3)");
 
+const slideTextVelux = document.querySelector("#pg-0 > div.left-side > div.slide-text");
+const slideTextBaumit = document.querySelector("#pg-1 > div.left-side > div.slide-text");
+const slideTextRemmers = document.querySelector("#pg-2 > div.left-side > div.slide-text");
 
 if (window.location.hash == '#hu') {
   infoName.textContent = lang.hu.info;
   infoLocation.textContent = lang.hu.location;
+  slideTextVelux.textContent = slideTextBaumit.textContent = slideTextRemmers.textContent = lang.hu.text;
+
+  // slideTextVelux.textContent = lang.hu.textVelux;
+  // slideTextBaumit.textContent = lang.hu.textBaumit;
+  // slideTextRemmers.textContent = lang.hu.textRemmers;
 }
 
 else if (window.location.hash == '#ro') {
   infoName.textContent = lang.ro.info;
   infoLocation.textContent = lang.ro.location;
+  slideTextVelux.textContent = slideTextBaumit.textContent = slideTextRemmers.textContent = lang.ro.text;
+
+  //   slideTextVelux.textContent = lang.ro.textVelux;
+  //   slideTextBaumit.textContent = lang.ro.textBaumit;
+  //   slideTextRemmers.textContent = lang.ro.textRemmers;
 }
 
+window.onload = () => {
+  // remove slide from browser
+  slides.childNodes[0].classList.add('display-none');
+  slides.childNodes[2].classList.add('display-none');
 
-ro.addEventListener('click', () => changeLanguage('ro'));
-hu.addEventListener('click', () => changeLanguage('hu'));
+  slides.setAttribute('onmouseenter', 'pauseSlides()');
+  slides.setAttribute('onmouseleave', 'startSlides()');
+
+  ro.addEventListener('click', () => changeLanguage('ro'));
+  hu.addEventListener('click', () => changeLanguage('hu'));
+
+  changePages();
+  startSlides();
+}
