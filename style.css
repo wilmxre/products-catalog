@@ -17,12 +17,14 @@ body {
 .container-top {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /* LANGUAGE */
 
 .language {
   display: flex;
+  align-self: flex-start;
   font-size: 1.4rem;
   padding-top: 1.5rem;
   margin-left: 4rem;
@@ -51,7 +53,7 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  margin: 4rem auto;
+  margin: 4rem 2rem;
   user-select: none;
   max-width: calc(31rem + 50vw);
   gap: 6rem;
@@ -65,6 +67,10 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 2.4rem;
+}
+
+.card-1 {
+  flex: 1.6;
 }
 
 img.card-0-title,
@@ -176,7 +182,9 @@ img.card-2-title {
   border-radius: 12px;
   animation: slideshow 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   width: 75.7vw;
-  height: 37vw;
+  /* height: 37vw; */
+  height: 70%;
+  /* padding: 5vw; */
 }
 
 .left-side,
@@ -201,6 +209,7 @@ img.card-2-title {
 .slide-text {
   width: 25vw;
   font-size: 1.4rem;
+  text-align: justify;
 }
 
 .slide-img {
@@ -292,17 +301,6 @@ img.card-2-title {
     font-size: 1.4rem;
   }
 
-  .slide-title {
-    font-size: 2.6rem;
-  }
-
-  .slide-text {
-    font-size: 1.2rem;
-  }
-
-  .slide-img {
-    height: 22rem;
-  }
 }
 
 @media only screen and (max-width: 1441px) {
@@ -320,22 +318,45 @@ img.card-2-title {
 @media only screen and (max-width: 1300px) {
   .slide {
     flex-direction: column;
-    width: 60vh;
-    height: 100vh;
-    padding-top: 1rem;
   }
 
-  .slide-title {
-    padding: 1rem 0;
-  }
-
-  .slide-img {
-    height: 20vh;
+  .slide-text {
+    width: 55vw;
   }
 
 }
 
+@media only screen and (max-width: 940px) {
+  .slide {
+    width: 100%;
+  }
+
+  .slide-title {
+    font-size: 2rem;
+  }
+
+  .slide-text {
+    font-size: 1.2rem;
+    /* width: 40vw; */
+  }
+}
+
 @media only screen and (max-width: 736px) {
+  .slide-text {
+    width: 40vw;
+    font-size: 1.1rem;
+  }
+
+  .next,
+  .prev {
+    font-size: 2.4rem;
+  }
+
+  .pg {
+    width: 48px;
+    height: 12px;
+  }
+
   .card-1-img {
     height: 15rem;
   }

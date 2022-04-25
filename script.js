@@ -244,3 +244,5 @@ window.onload = () => {
   changePages();
   startSlides();
 }
+
+console.log(window.innerWidth)
