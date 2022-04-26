@@ -258,11 +258,6 @@ let lang = {
     textRemmersAttention: 'Click a kartyara, de romanul!'
   }
 }
-// Gmail es GitHub-on is:
-// e-mail: agostonhajnal.santago@gmail.com
-// password: 64bYc6x9#N
-
-//oldal neve: https://santagoshop.github.io/home/
 
 // set slide text
 setSrc(slides.childNodes[0].childNodes[0].childNodes[1], 'textContent', lang.hu.textVelux);
